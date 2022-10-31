@@ -29,7 +29,6 @@ public class FileKV implements KeyValueStorage {
 
     @Override
     public String get(String key, String defaultValue) {
-        Map<String, String> dbEntries = Utils.unserialize(Utils.readFile(filePath));
         return dbEntries.getOrDefault(key, defaultValue);
     }
 
