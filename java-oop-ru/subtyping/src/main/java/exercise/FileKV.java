@@ -1,5 +1,6 @@
 package exercise;
 
+import java.util.HashMap;
 import java.util.Map;
 
 // BEGIN
@@ -10,7 +11,7 @@ public class FileKV implements KeyValueStorage {
 
     public FileKV(String filePath, Map<String, String> dbEntries) {
         Utils.writeFile(filePath, Utils.serialize(dbEntries));
-        this.dbEntries = Utils.unserialize(Utils.readFile(filePath));
+        this.dbEntries = new HashMap<>(dbEntries);
         this.filePath = filePath;
     }
 
