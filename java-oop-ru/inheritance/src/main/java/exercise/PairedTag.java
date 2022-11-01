@@ -23,13 +23,16 @@ public class PairedTag extends Tag {
         return childrenToString.toString();
     }
 
+    String openedTag = "<" + tag + getAttributesToString(attributes) + ">";
+    String closedTag = "</" + tag + ">";
+
     @Override
     public String toString() {
         StringBuilder pairedTag = new StringBuilder();
-        pairedTag.append("<" + tag + getAttributesToString(attributes) + ">")
+        pairedTag.append(openedTag)
                 .append(getChildrenToString())
                 .append(body)
-                .append("</" + tag + ">");
+                .append(closedTag);
         return pairedTag.toString();
     }
 }
