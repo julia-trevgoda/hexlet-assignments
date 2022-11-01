@@ -30,11 +30,24 @@ public class Validator {
         for (Field field : fields) {
             List<String> validationErrors = new ArrayList<>();
             field.setAccessible(true);
+            String value;
 
-            if (field.isAnnotationPresent(NotNull.class) && field.get(obj) == null) {
-                validationErrors.add("can not be null");
-            } else if (field.isAnnotationPresent(MinLength.class) && ((String) field.get(obj)).length() < 4) {
-                validationErrors.add("length less than " + 4);
+            if (field.isAnnotationPresent(NotNull.class) || field.isAnnotationPresent(MinLength.class)) {
+
+                try {
+                    value = (String) field.get(obj);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+                if (field.isAnnotationPresent(NotNull.class) && value == null) {
+                    validationErrors.add("can not be null");
+                } else if (field.isAnnotationPresent(MinLength.class)) {
+                    int minLength = field.getAnnotation(MinLength.class).minLength();
+                    if (value.length() < minLength) {
+                        validationErrors.add("length less than " + minLength);
+                    }
+                }
             }
             if (!validationErrors.isEmpty()) {
                 notValidAddresses.put(field.getName(), validationErrors);
