@@ -36,7 +36,7 @@ public class Example {
 //        System.out.println(set.size());
 //
 //        Set<Item> itemSet = new HashSet<>();
-//        itemSet.add(new Item(1, "Зубная щётка", 100));
+//        itemSet.add(new Item(1, "Зубная щетка", 100));
 //        itemSet.add(new Item(2, "Замороженная пицца", 200));
 //        itemSet.add(new Item(3, "Мороженое", 100));
 //        System.out.println(itemSet);
@@ -51,14 +51,14 @@ public class Example {
         //LinkedHashSet
 
 //        Set<Item> itemLinkedHashSet = new LinkedHashSet<>();
-//        itemLinkedHashSet.add(new Item(1, "Зубная щётка", 100));
+//        itemLinkedHashSet.add(new Item(1, "Зубная щетка", 100));
 //        itemLinkedHashSet.add(new Item(2, "Замороженная пицца", 200));
 //        itemLinkedHashSet.add(new Item(3, "Мороженое", 100));
 //        System.out.println(itemLinkedHashSet);
 //
 //        // TreeSet
         Set<Item> itemTreeSet = new TreeSet<>();
-        itemTreeSet.add(new Item(1, "Зубная щётка", 100));
+        itemTreeSet.add(new Item(1, "Зубная щетка", 100));
         itemTreeSet.add(new Item(2, "Замороженная пицца", 200));
         itemTreeSet.add(new Item(3, "Мороженое", 50));
         System.out.println(itemTreeSet);
